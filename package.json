@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "serialport": "^7.1.5",
+    "sphero": "^0.9.2"
+  }
+}

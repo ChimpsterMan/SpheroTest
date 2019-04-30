@@ -1,9 +1,13 @@
 var sphero = require("sphero"),
-    orb = sphero("/dev/rfcomm0"); // change port accordingly
+    orb = sphero("/dev/rfcomm5", {emitPacketErrors: true}); // change port accordingly
  
 orb.connect(function() {
   setInterval(function() {
     var direction = Math.floor(Math.random() * 360);
-    bb8.roll(150, direction);
+    orb.roll(150, direction);
   }, 1000);
+
+  orb.on("error", function(err, data) {
+    console.log(err);
+  });
 });
